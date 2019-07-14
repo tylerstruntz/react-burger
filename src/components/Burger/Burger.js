@@ -3,7 +3,6 @@ import classes from './Burger.css';
 import BurgerIngredient from './Ingredients/Ingredients';
 
 const Burger = (props) => {
-    //abstract objects and turns string into array. working towards dynamic burger.
     let ingredientArray = Object.keys(props.ingredient).map((ingredientKey) => {
         return [...Array(props.ingredient[ingredientKey])].map((_, index) => {
             return <BurgerIngredient key={ingredientKey+index} type={ingredientKey} />
