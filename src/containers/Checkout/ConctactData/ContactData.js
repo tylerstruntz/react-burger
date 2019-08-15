@@ -9,6 +9,7 @@ import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler'
 import * as actions from '../../../store/actions/index';
 
 class ContactData extends Component {
+    //give predefined details of how the inputs should be.
     state = {
         orderForm: {
             //this is a form element

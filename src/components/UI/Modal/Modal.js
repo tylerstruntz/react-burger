@@ -3,6 +3,8 @@ import classes from './Modal.css';
 import Aux from '../../../hoc/Auxillary/Auxillary';
 import Backdrop from '../Backdrop/Backdrop';
 
+//shows a form that comes to the screen. used when the user confirms they want to place 
+//their order. will usually hold a number of inputs the developer specifies
 class Modal extends Component {
 
     //lifecycle methods prevent ordersummary from unessesarily updating
@@ -11,9 +13,10 @@ class Modal extends Component {
     }
 
     //lifecycle methods prevent ordersummary from unessesarily updating
-    componentWillUpdate(nextProps, nextState) {
-        console.log('[Modal] WillUpdate')
-    }
+    //TODO: uncomment if getting error with ordersummary updating
+    // componentWillUpdate(nextProps, nextState) {
+    //     console.log('[Modal] WillUpdate')
+    // }
 
 
     render() {

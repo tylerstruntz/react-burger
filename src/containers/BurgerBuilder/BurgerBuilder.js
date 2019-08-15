@@ -10,7 +10,7 @@ import axios from '../../axios-orders';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 
-
+//this component holds the controls, the order summary and the actual burger
 class BurgerBuilder extends Component {
 
     //relevant UI states only
@@ -19,12 +19,16 @@ class BurgerBuilder extends Component {
         purchaseOrder: false,
     }
 
+    //when the component does mount call on init ingredients
+    //to get the initial ingredients from firebase.
     componentDidMount() {
         console.log(this.props);
         this.props.onInitIngredients();
     }
 
 
+    //map the ingredients. put them in an ordered pair
+    //this way we can give it a price
     updatePurchasableState(ingredient) {
         const sum = Object.keys(ingredient).map(igKey => {
             return ingredient[igKey];
@@ -35,15 +39,18 @@ class BurgerBuilder extends Component {
         return sum > 0;
     }
 
-
+    //sets state to true.
     purchaseOrderHandler = () => {
         this.setState({ purchaseOrder: true });
     }
 
+    //sets purchase order to false
     purchaseCancelHandler = () => {
         this.setState({ purchaseOrder: false });
     }
 
+    //invoke method then route user to new page
+    //with react router
     purchaseContinueHandler = () => {
         this.props.onInitPurchase();
         this.props.history.push('/checkout');
@@ -93,7 +100,7 @@ class BurgerBuilder extends Component {
     }
 }
 
-
+//use redux store to get props
 const mapStateToProps = state => {
     return {
         ings: state.burgerBuilder.ingredient,
@@ -102,6 +109,7 @@ const mapStateToProps = state => {
     }
 }
 
+//actions that this class will use.
 const mapDispatchToProps = dispatch => {
     return {
         onIngredientAdded: (ingName) => dispatch(actions.addIngredient(ingName)),

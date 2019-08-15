@@ -9,6 +9,9 @@ const controlsArr = [
     { label: 'Meat', type: 'meat' },
 ];
 
+
+//displays the price of the burger and also the number of ingredients. 
+//also holds the checkout button
 const buildcontrols = (props) => (
     <div className={ classes.BuildControls }>
         <p>Current Price:  <strong>${ props.price.toFixed(2) }</strong></p>
